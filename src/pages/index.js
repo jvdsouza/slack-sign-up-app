@@ -1,21 +1,25 @@
 import React from "react"
-import { Link } from "gatsby"
+import {MEETUP_GREET, MEETUP_NAME} from "../../configure.js";
+// import { Link } from "gatsby"
+import './index.css';
+import 'tachyons';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+// import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SubmissionForm from "../components/submission-form"
+import Header from "../components/header";
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+  <div className='Home'>
+    <Header meetupName={MEETUP_NAME}/>
+    <div className='wrapper mh6'>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <h1 className='mt0'>Hello {MEETUP_GREET}</h1>
+      <p>Welcome to our meetup!</p>
+      <p>Join our slack using the submission form below</p>
+      <SubmissionForm/>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  </div>
 )
 
 export default IndexPage
