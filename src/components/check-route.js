@@ -14,15 +14,7 @@ export default class Routing extends Component {
     }
 
     check = () => {
-        // fetch(`https://api.meetup.com/Melbourne-Code-Mentoring-Web-Development-Design/events?key=397a605695b1e216c74691c7a6611e&sign=true`)
-        //     .then(res => {
-        //         return res.json()
-        //     })
-        //     .then(data => {
-        //         console.log(data["group"])
-        //         return true
-        //     })
-        //     .catch(err => false);
+
         return true
     }
 
