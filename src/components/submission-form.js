@@ -1,5 +1,7 @@
 import React from "react"
 
+import './submission-form.css'
+
 export default class SubmissionForm extends React.Component {
   state = {
     firstName: "",
@@ -19,7 +21,7 @@ export default class SubmissionForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Welcome ${this.state.firstName} ${this.state.lastName}!`)
+    alert(`Welcome ${this.state.firstName} ${this.state.lastName} @ ${this.state.email}!`)
   }
 
   render() {
@@ -54,9 +56,9 @@ export default class SubmissionForm extends React.Component {
         </div>
         <p className='ma1'>* = Required</p>
         <button 
-          className='ma3' 
+          className='ma3 f6 link dim ba ph3 pv2 mb2 dib black arial' 
           type="submit" 
-          onSubmit={this.handleSubmit}>Submit</button>
+          onClick={this.handleSubmit}>Sign Up</button>
     </div>
     )
   }
