@@ -12,28 +12,31 @@ export default class Routing extends Component {
             route: 'home'
         }
     }
+    
+    // check = () => {
+    //     return fetch(`https://api.meetup.com/Melbourne-Code-Mentoring-Web-Development-Design/events?key=269437024311785a26ae4a4d552f&sign=true`)
+    //         .then(res => {
+    //             return res.json();
+    //         })
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    //         .catch(err => {
+    //             this.setState({route: 'apology'})
+    //         });
+    // }
 
-    check = () => {
-
-        return true
-    }
-
-    routeChange = () => {
-        if (this.check()) {
-            this.setState({route: 'home'})
-        } else {
-            this.setState({route: 'apology'})
-        }
-    }
-
-    componentDidMount() {
-        this.routeChange()
-    }
+    // componentDidMount() {
+    //     this.check()
+    // }
 
     render() {
         return (
             <div>
-                {this.state.route === 'home' ? <SignUp meetupGreet={MEETUP_GREET}/> : <div>fail</div>}
+                {this.state.route === 'home' ? 
+                    <div>{check()}<SignUp meetupGreet={MEETUP_GREET}/></div> 
+                    : 
+                    <div>Apology</div>}
             </div>
         )
     }
