@@ -1,8 +1,10 @@
+require('dotenv').config();
+MEETUP_URL_NAME = require('./configure.js').MEETUP_URL
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Slack Sign-up App`,
+    description: `Sign up to your meetup's slack group with ease!`,
+    author: `@jvdsouza`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -38,12 +40,13 @@ module.exports = {
         key: process.env.MEETUP_API_KEY,
         // Mandatory: the URL name of a Meetup Group.
         // See the URL of the group page, e.g. https://www.meetup.com/fr-FR/jamstack-paris
-        groupUrlName: "jamstack-paris",
+        groupUrlName: MEETUP_URL_NAME,
         // Optional parameters for retrieving Events, see full documentation at
         // https://www.meetup.com/meetup_api/docs/:urlname/events/?uri=%2Fmeetup_api%2Fdocs%2F%3Aurlname%2Fevents%2F#list
-        status: "upcoming,past",
+        status: "upcoming",
         desc: "true",
-        page: 10
+        page: 1,
+        scroll: "next_upcoming"
       },
     },
   ],
