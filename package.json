@@ -22,12 +22,12 @@
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
-    "babel-jest": "^24.5.0",
-    "babel-preset-gatsby": "^0.1.9",
+    "babel-jest": "^24.7.1",
+    "babel-preset-gatsby": "^0.1.11",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.5.0",
+    "jest": "^24.7.1",
     "prettier": "^1.16.4",
-    "react-test-renderer": "^16.8.4"
+    "react-test-renderer": "^16.8.6"
   },
   "keywords": [
     "gatsby"

@@ -1,19 +1,6 @@
-import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-
-//TODO
-//check location and time
-//if at the location and at the time
-// - involves converting time from string and checking
-//   if the time is both in hours and minutes past the
-//   starting time of the event
-// - requires the same for date
-// - must also terminate after duration is over
-// - possibly 
-//route to index
-//otherwise route to apology pages
-
-//Time and location
+//This file is a utility file to help check
+//the current date, time and location of the user against
+//the event date, time and location
 
 const currentDateTime = () => {
 
@@ -34,15 +21,30 @@ const currentDateTime = () => {
     return {currentTime: time, currentDate: today};
 }
 
-const timeCheck = (eventTime) => {
+const timeCheck = (eventTime, eventDuration, currentTime) => {
     //checks the current time against the event time, in 24 hours formatting
+    const eventTimeNumber = Number(eventTime);
+    const eventDurationNumber = Number(eventDuration);
+    const currentTimeNumber = Number(currentTime);
+
+    //if we're in the current time of the event
+    if (currentTimeNumber >= eventTimeNumber && currentTimeNumber <= (eventTimeNumber + eventDurationNumber)) {
+        return true;
+    }
+    return false;
 }
 
-const dateCheck = (eventDate) => {
+const dateCheck = (eventDate, currentDate) => {
     //checks the current date against the event date in yyyymmdd formatting
+
+    //if it's the day of the event
+    if (eventDate === currentDate) {
+        return true;
+    }
+    return false;
 }
 
-const locationCheck = (option) => {
+const locationCheck = (option, eventLocation = null, eventIP = null) => {
     //checks the current location against the location of the user by either IP or lat/long coordinates
 }
 
