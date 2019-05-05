@@ -10,7 +10,8 @@ import {currentDateTime,
         locationCheck} from '../utils/availability-check';
 import {
         timeConvert,
-        dateConvert} from '../utils/converters';
+        dateConvert,
+        msToHours} from '../utils/converters';
 
 // This component is designed to check the time, date and location of the user and whether they're
 // in the correct location at the right time to allow them to sign up to the meetup's slack channel
@@ -23,17 +24,30 @@ export default () => {
                 meetupEvent {
                     local_time
                     local_date
+                    duration
+                    venue {
+                        lat
+                        lon
+                    }
                 }
             }
         
         `
     )
 
-    const now = currentDateTime().currentTime + '-' + currentDateTime().currentDate;
+    //check if the user is accessing the app at the correct date
+    const correctDate = dateCheck(dateConvert(data.meetupEvent.local_date),
+                                  currentDateTime().currentDate);
+    //check if the user is accessing the app at a valid time
+    const correctTime = timeCheck(timeConvert(data.meetupEvent.local_time),
+                                  msToHours(data.meetupEvent.duration),
+                                  currentDateTime().currentTime);
+    //check if the user is accessing the app while in a valid location
+    //TODO
 
     return (
         <div>
-            <div><SignUp meetupGreet={MEETUP_GREET}/>{now} - {data.meetupEvent.local_time}</div> 
+            <div><SignUp meetupGreet={MEETUP_GREET}/> {correctDate + '-' + correctTime}- {data.meetupEvent.local_time}</div> 
         </div>
     )
 }

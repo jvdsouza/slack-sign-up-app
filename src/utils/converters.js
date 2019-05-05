@@ -28,15 +28,17 @@ const dateConvert = (date) => {
     return convertedDate;
 }
 
-const latitudeToMeters = (latitude) => {
-
-}
-
-const longitudeToMeters = (longitude) => {
-    
+const msToHours = (milliseconds) => {
+    //converts milliseconds to hours
+    const seconds = milliseconds/1000;
+    const minutes = seconds/60;
+    const hours = minutes/60;
+    return hours;
 }
 
 export {
     timeConvert,
-    dateConvert
+    dateConvert,
+    msToHours
 }
+
