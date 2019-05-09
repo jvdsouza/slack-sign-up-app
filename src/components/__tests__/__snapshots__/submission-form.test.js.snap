@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`submission form renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="ma2"
+    >
+      First Name
+    </div>
+    <input
+      name="firstName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div>
+    <div
+      className="ma2"
+    >
+      Last name
+    </div>
+    <input
+      name="lastName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div>
+    <div
+      className="ma2"
+    >
+      Email*
+    </div>
+    <input
+      name="email"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <p
+    className="ma1"
+  >
+    * = Required
+  </p>
+  <button
+    className="ma3 f6 link dim ba ph3 pv2 mb2 dib black arial"
+    onClick={[Function]}
+    type="submit"
+  >
+    Sign Up
+  </button>
+</div>
+`;

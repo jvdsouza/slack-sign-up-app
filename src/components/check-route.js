@@ -4,6 +4,7 @@ import {MEETUP_GREET, MEETUP_NAME, MEETUP_URL} from "../../configure";
 
 //react components
 import SignUp from './main-page';
+import Apology from './apology';
 import {currentDateTime,
         timeCheck,
         dateCheck,
@@ -16,7 +17,7 @@ import {
 // This component is designed to check the time, date and location of the user and whether they're
 // in the correct location at the right time to allow them to sign up to the meetup's slack channel
 
-export default () => {
+const Routing = () => {
     //query the meetup source plugin for date and time
     const data = useStaticQuery(
         graphql`
@@ -44,10 +45,21 @@ export default () => {
                                   currentDateTime().currentTime);
     //check if the user is accessing the app while in a valid location
     //TODO
+    const correctLocation = false;
 
-    return (
+    const grantAccess = correctDate && correctTime && correctLocation;
+
+    return grantAccess?(
         <div>
             <div><SignUp meetupGreet={MEETUP_GREET}/> {correctDate + '-' + correctTime}- {data.meetupEvent.local_time}</div> 
         </div>
     )
+    :
+    (
+        <div>
+            <Apology/>
+        </div>
+    )
 }
+
+export default Routing;

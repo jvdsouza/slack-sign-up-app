@@ -1,3 +1,7 @@
 div {
     font-family: 'Arial';
 }
+
+button {
+    cursor: pointer;
+}

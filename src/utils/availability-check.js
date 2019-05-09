@@ -28,7 +28,8 @@ const timeCheck = (eventTime, eventDuration, currentTime) => {
     const currentTimeNumber = Number(currentTime);
 
     //if we're in the current time of the event
-    if (currentTimeNumber >= eventTimeNumber && currentTimeNumber <= (eventTimeNumber + eventDurationNumber)) {
+    if (currentTimeNumber >= eventTimeNumber 
+        && currentTimeNumber <= (eventTimeNumber + eventDurationNumber)) {
         return true;
     }
     return false;
@@ -45,7 +46,7 @@ const dateCheck = (eventDate, currentDate) => {
 }
 
 const locationCheck = (option, eventLocation = null, eventIP = null) => {
-    //checks the current location against the location of the user by either IP or lat/long coordinates
+    //TODO checks the current location against the location of the user by either IP or lat/long coordinates
 }
 
 export {
